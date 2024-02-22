@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import * as React from 'react';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Go ahead and render the item’s url, author, num_comments, and points as well. 
+// In the special case of the url, use an HTML anchor HTML element (read: <a> tag) that surrounds the title. 
 
+const list = [
+  {
+    title: 'Cleaning',
+    id: 0,
+  }, {
+    title: 'Groceries',
+    id: 1,
+  }, {
+    title: 'Work',
+    id: 2,
+  },
+  {
+    title: 'Sleep',
+    id: 3,
+  },
+];
+
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="body-wrapper">
+      <ul className="list-wrapper">
+        {list.map((item) => {
+          return (
+            <li key={item.id}>
+              <input type="checkbox" id={item.title} name={item.title} value={item.title}/>
+              <label htmlFor={item.title}>{item.title}</label>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
   )
 }
 
