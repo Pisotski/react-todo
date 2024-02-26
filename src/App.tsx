@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './App.css'
 import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
 
 // @Ethan I'm going to use sudo code to discuss questions/topics that come up while i'm coding.
 // I do understand that it is not a conventional way of communication or using sudo code
@@ -17,6 +18,7 @@ import TodoList from './TodoList';
 const App = () => (
   <div className="body-wrapper">
     <h1>Todo List</h1>
+    <AddTodoForm />
     <TodoList />
   </div>
 )
