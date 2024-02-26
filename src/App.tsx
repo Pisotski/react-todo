@@ -1,9 +1,6 @@
 import * as React from 'react';
 import './App.css'
 
-// Go ahead and render the item’s url, author, num_comments, and points as well. 
-// In the special case of the url, use an HTML anchor HTML element (read: <a> tag) that surrounds the title. 
-
 const list = [
   {
     title: 'Cleaning',
