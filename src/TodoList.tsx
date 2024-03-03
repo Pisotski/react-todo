@@ -1,35 +1,13 @@
-import TodoListItem from "./TodoListItem";
-
-interface Job {
-	title: string;
-	id: number;
-}
-
-const list: Job[] = [
-	{
-		title: "Cleaning",
-		id: 0,
-	},
-	{
-		title: "Groceries",
-		id: 1,
-	},
-	{
-		title: "Work",
-		id: 2,
-	},
-	{
-		title: "Sleep",
-		id: 3,
-	},
-];
+import { TodoListItem } from "./TodoListItem";
+import { Job } from "./FormInterfaces";
+import { list } from "./data.tsx";
 
 const TodoList = () => (
 	<ul className="list-wrapper">
 		{list.map((item: Job) => (
-			<TodoListItem todoItem={item} />
+			<TodoListItem key={item.id} job={item} />
 		))}
 	</ul>
 );
 
-export default TodoList;
+export { TodoList };

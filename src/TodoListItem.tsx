@@ -1,14 +1,13 @@
 import { FC } from "react";
+import { TodoListItemProps } from "./FormInterfaces";
 
-type todoItem = string;
-
-const TodoListItem: FC<todoItem> = ({ todoItem: { title, id } }) => {
+const TodoListItem: FC<TodoListItemProps> = ({ job: { title } }) => {
 	return (
-		<li key={id}>
+		<li>
 			<input type="checkbox" id={title} name={title} value={title} />
 			<label htmlFor={title}>{title}</label>
 		</li>
 	);
 };
 
-export default TodoListItem;
+export { TodoListItem };
