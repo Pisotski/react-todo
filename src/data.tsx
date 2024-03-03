@@ -1,4 +1,4 @@
-import { Job } from "./FormInterfaces";
+import { Job } from "./interfaces/FormInterfaces";
 
 const list: Job[] = [
 	{

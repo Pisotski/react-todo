@@ -1,5 +1,5 @@
 import { TodoListItem } from "./TodoListItem";
-import { Job } from "./FormInterfaces";
+import { Job } from "./interfaces/FormInterfaces.tsx";
 import { list } from "./data.tsx";
 
 const TodoList = () => (

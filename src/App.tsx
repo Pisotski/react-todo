@@ -1,14 +1,20 @@
-import * as React from "react";
+import { FC, useState, FormEvent } from "react";
 import "./App.css";
 import { TodoList } from "./TodoList";
-import AddTodoForm from "./AddTodoForm";
+import { AddTodoForm } from "./AddTodoForm";
 
-const App: React.FC = () => (
-	<div className="body-wrapper">
-		<h1>Todo List</h1>
-		<AddTodoForm />
-		<TodoList />
-	</div>
-);
-
-export default App;
+const App: FC = () => {
+	const [newTodo, setNewTodo] = useState<string>("");
+	const onAddTodo = (data: string): void => {
+		setNewTodo(data);
+	};
+	return (
+		<div className="body-wrapper">
+			<h1>Todo List</h1>
+			<AddTodoForm onAddTodo={onAddTodo} />
+			<p>{newTodo}</p>
+			<TodoList />
+		</div>
+	);
+};
+export { App };
