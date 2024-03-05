@@ -1,4 +1,4 @@
-import { FC, useState, FormEvent } from "react";
+import { FC, useState } from "react";
 import "./App.css";
 import { TodoList } from "./TodoList";
 import { AddTodoForm } from "./AddTodoForm";

@@ -1,16 +1,19 @@
 import { FC, FormEventHandler } from "react";
 
-interface onAddTodoProps {
-	onAddTodo(setNewTodo: string): void;
+interface AddTodoFormProps {
+	onAddTodo: (setNewTodo: string) => void;
 }
 
-const AddTodoForm: FC = ({ onAddTodo }: onAddTodoProps) => {
+const AddTodoForm: FC<AddTodoFormProps> = ({ onAddTodo }) => {
 	const handleAddTodo: FormEventHandler = (e) => {
 		e.preventDefault();
-		const input: HTMLInputElement = e.currentTarget.querySelector("input");
-		const todoTitle = input?.value;
-		onAddTodo(todoTitle);
-		input.value = "";
+		const input: HTMLInputElement | null =
+			e.currentTarget.querySelector("input");
+		if (input) {
+			const todoTitle = input?.value;
+			onAddTodo(todoTitle);
+			input.value = "";
+		}
 	};
 
 	return (
