@@ -1,26 +1,28 @@
-import { FC, FormEventHandler } from "react";
+import { FC, FormEventHandler, useState } from "react";
 
 interface AddTodoFormProps {
 	onAddTodo: (setNewTodo: string) => void;
 }
 
 const AddTodoForm: FC<AddTodoFormProps> = ({ onAddTodo }) => {
-	const handleAddTodo: FormEventHandler = (e) => {
+	const [inputValue, setInputValue] = useState<string>("");
+
+	const handleInputChange: FormEventHandler<HTMLInputElement> = (e): void => {
+		const { value } = e.currentTarget;
+		typeof value === "string" ? setInputValue(value) : setInputValue("");
+	};
+
+	const handleAddTodo: FormEventHandler = (e): void => {
 		e.preventDefault();
-		const input: HTMLInputElement | null =
-			e.currentTarget.querySelector("input");
-		if (input) {
-			const todoTitle = input?.value;
-			onAddTodo(todoTitle);
-			input.value = "";
-		}
+		onAddTodo(inputValue);
+		setInputValue("");
 	};
 
 	return (
 		<form id="addTodoForm" onSubmit={handleAddTodo}>
 			<label htmlFor="todoTitle">Title</label>
-			<input id="todoTitle" name="title" />
-			<button value="Submit">Add</button>
+			<input id="todoTitle" onChange={handleInputChange} value={inputValue} />
+			<button>Add</button>
 		</form>
 	);
 };

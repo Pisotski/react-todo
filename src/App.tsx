@@ -8,6 +8,7 @@ const App: FC = () => {
 	const onAddTodo = (data: string): void => {
 		setNewTodo(data);
 	};
+
 	return (
 		<div className="body-wrapper">
 			<h1>Todo List</h1>
