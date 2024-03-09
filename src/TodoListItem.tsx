@@ -1,5 +1,13 @@
 import { FC } from "react";
-import { TodoListItemProps } from "./interfaces/FormInterfaces";
+
+interface Job {
+	title: string;
+	id: number;
+}
+
+interface TodoListItemProps {
+	job: Job;
+}
 
 const TodoListItem: FC<TodoListItemProps> = ({ job: { title } }) => {
 	return (

@@ -1,10 +1,17 @@
 import { TodoListItem } from "./TodoListItem";
-import { Job } from "./interfaces/FormInterfaces.tsx";
-import { list } from "./data.tsx";
+import { FC } from "react";
 
-const TodoList = () => (
+interface Job {
+	title: string;
+	id: number;
+}
+interface TodoListProps {
+	todoList: Job[];
+}
+
+const TodoList: FC<TodoListProps> = ({ todoList }) => (
 	<ul className="list-wrapper">
-		{list.map((item: Job) => (
+		{todoList.map((item: Job) => (
 			<TodoListItem key={item.id} job={item} />
 		))}
 	</ul>

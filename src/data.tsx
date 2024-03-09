@@ -1,4 +1,7 @@
-import { Job } from "./interfaces/FormInterfaces";
+interface Job {
+	title: string;
+	id: number;
+}
 
 const list: Job[] = [
 	{
