@@ -1,9 +1,4 @@
-interface Job {
-	title: string;
-	id: number;
-}
-
-const list: Job[] = [
+const list = [
 	{
 		title: "Cleaning",
 		id: 0,

@@ -1,12 +1,12 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { list } from "./data.tsx";
-import { TodoList } from "./TodoList";
-import { AddTodoForm } from "./AddTodoForm";
+import { TodoList } from "./TodoList.tsx";
+import { AddTodoForm } from "./AddTodoForm.jsx";
 
-const App: FC = () => {
-	const [newTodo, setNewTodo] = useState<string>("");
-	const onAddTodo = (data: string): void => {
+const App = () => {
+	const [newTodo, setNewTodo] = useState("");
+	const onAddTodo = (data) => {
 		setNewTodo(data);
 	};
 
