@@ -1,4 +1,4 @@
-const TodoListItem = ({ job: { title } }) => {
+const TodoListItem = ({ title }) => {
 	return (
 		<li>
 			<input type="checkbox" id={title} name={title} value={title} />
