@@ -5,7 +5,9 @@ import { TodoList } from "./TodoList.jsx";
 import { AddTodoForm } from "./AddTodoForm.jsx";
 
 const App = () => {
-	const [todoList, setTodoList] = useState(list);
+	const [todoList, setTodoList] = useState(
+		JSON.parse(localStorage.getItem("savedTodoList"))
+	);
 
 	const toLocalStorage = () => {
 		localStorage.setItem("savedTodoList", JSON.stringify(todoList));
