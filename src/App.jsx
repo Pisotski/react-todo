@@ -18,7 +18,9 @@ const userSemiPersistentState = () => {
 };
 
 const App = () => {
-	const [todoList, setTodoList] = userSemiPersistentState();
+	const [todoList, setTodoList] = useState(
+		JSON.parse(localStorage.getItem("savedTodoList"))
+	);
 
 	const toLocalStorage = () => {
 		localStorage.setItem("savedTodoList", JSON.stringify(todoList));
