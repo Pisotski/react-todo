@@ -20,6 +20,12 @@ const userSemiPersistentState = () => {
 const App = () => {
 	const [todoList, setTodoList] = userSemiPersistentState();
 
+	const toLocalStorage = () => {
+		localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+	};
+
+	useEffect(toLocalStorage, [todoList]);
+
 	const addTodo = (newTodo) => {
 		setTodoList([...todoList, newTodo]);
 	};
