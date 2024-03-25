@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { list } from "./data.jsx";
-import { TodoList } from "./TodoList.jsx";
-import { AddTodoForm } from "./AddTodoForm.jsx";
+import { list } from "../../data.js";
+import { TodoList } from "../TodoList/TodoList.jsx";
+import { AddTodoForm } from "../AddTodoForm/AddTodoForm.jsx";
 
 const userSemiPersistentState = () => {
 	const [todoList, setTodoList] = useState(
@@ -24,12 +24,20 @@ const App = () => {
 		setTodoList([...todoList, newTodo]);
 	};
 
+	const removeTodo = (id) => {
+		const newTodo = todoList.filter((todo) => todo.id !== id);
+		setTodoList(newTodo);
+	};
+
 	return (
 		<>
 			<h1>Todo List</h1>
 			<AddTodoForm onAddTodo={addTodo} />
-			<TodoList todoList={todoList} />
+			<TodoList todoList={todoList} onRemoveTodo={removeTodo} />
 		</>
 	);
 };
+
+// (() => localStorage.clear())();
+
 export { App };
