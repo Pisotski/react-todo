@@ -22,6 +22,21 @@ const App = () => {
 		}
 	};
 
+	useEffect(() => {
+		new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve({
+					data: {
+						todoList: JSON.parse(localStorage.getItem("savedTodoList")) || list,
+					},
+				});
+			}, 500);
+		}).then((result) => {
+			setTodoList(result.data.todoList);
+			setIsLoading(false);
+		});
+	}, []);
+
 	useEffect(toLocalStorage, [todoList]);
 
 	const fetchData = async () => {
