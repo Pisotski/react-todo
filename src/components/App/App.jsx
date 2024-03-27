@@ -25,7 +25,6 @@ const App = () => {
 	useEffect(toLocalStorage, [todoList]);
 
 	const fetchData = async (method, data) => {
-		console.log(method, JSON.stringify(data));
 		const options = {
 			method: method,
 			headers: {
