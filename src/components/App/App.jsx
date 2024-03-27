@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { list } from "../../data.js";
 import { TodoList } from "../TodoList/TodoList.jsx";
 import { AddTodoForm } from "../AddTodoForm/AddTodoForm.jsx";
 
@@ -17,7 +16,6 @@ const App = () => {
 	useEffect(toLocalStorage, [todoList]);
 
 	const fetchData = async (method, data) => {
-		console.log(method, JSON.stringify(data));
 		const options = {
 			method: method,
 			headers: {
@@ -63,9 +61,11 @@ const App = () => {
 			},
 		};
 
-		fetchData("POST", newPost).then(({ id, fields: { title } }) => {
-			setTodoList([...todoList, { id, title }]);
-		});
+		fetchData("POST", newPost)
+			.then(({ id, fields: { title } }) => {
+				setTodoList([...todoList, { id, title }]);
+			})
+			.catch((error) => console.log(error));
 	};
 
 	const removeTodo = (id) => {
