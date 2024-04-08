@@ -51,6 +51,4 @@ const App = () => {
 	);
 };
 
-// (() => localStorage.clear())();
-
 export { App };
