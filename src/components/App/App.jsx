@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { list } from "../../data.js";
 import { TodoList } from "../TodoList/TodoList.jsx";
 import { AddTodoForm } from "../AddTodoForm/AddTodoForm.jsx";
 
@@ -9,28 +8,26 @@ const App = () => {
 
 	const [isLoading, setIsLoading] = useState(true);
 
-	const toLocalStorage = () => {
-		if (isLoading === false) {
-			localStorage.setItem("savedTodoList", JSON.stringify(todoList));
-		}
-	};
-
 	useEffect(() => {
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
 				resolve({
 					data: {
-						todoList: JSON.parse(localStorage.getItem("savedTodoList")) || list,
+						todoList: JSON.parse(localStorage.getItem("savedTodoList")) || [],
 					},
 				});
-			}, 500);
+			}, 2000);
 		}).then((result) => {
 			setTodoList(result.data.todoList);
 			setIsLoading(false);
 		});
 	}, []);
 
-	useEffect(toLocalStorage, [todoList]);
+	useEffect(() => {
+		if (isLoading === false) {
+			localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+		}
+	}, [todoList]);
 
 	const addTodo = (newTodo) => {
 		setTodoList([...todoList, newTodo]);
