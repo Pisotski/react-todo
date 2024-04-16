@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 
-const InputWithLabel = ({ children, handleTitleChange }) => {
+const InputWithLabel = ({ children, handleTitleChange, value }) => {
 	const inputRef = useRef(null);
 	const handleChange = (e) => {
 		handleTitleChange(e);
@@ -16,6 +16,7 @@ const InputWithLabel = ({ children, handleTitleChange }) => {
 				name="title"
 				onChange={handleChange}
 				ref={inputRef}
+				value={value}
 			/>
 		</>
 	);
