@@ -16,28 +16,26 @@ const App = () => {
 	const [todoList, setTodoList] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const toLocalStorage = () => {
-		if (isLoading === false) {
-			localStorage.setItem("savedTodoList", JSON.stringify(todoList));
-		}
-	};
-
 	useEffect(() => {
 		new Promise((resolve, reject) => {
 			setTimeout(() => {
 				resolve({
 					data: {
-						todoList: JSON.parse(localStorage.getItem("savedTodoList")) || list,
+						todoList: JSON.parse(localStorage.getItem("savedTodoList")) || [],
 					},
 				});
-			}, 500);
+			}, 2000);
 		}).then((result) => {
 			setTodoList(result.data.todoList);
 			setIsLoading(false);
 		});
 	}, []);
 
-	useEffect(toLocalStorage, [todoList]);
+	useEffect(() => {
+		if (isLoading === false) {
+			localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+		}
+	}, [todoList]);
 
 	const fetchData = async () => {
 		const options = {
