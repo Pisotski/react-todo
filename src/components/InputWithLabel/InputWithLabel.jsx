@@ -10,11 +10,10 @@ const InputWithLabel = ({ children, handleTitleChange, value }) => {
 	});
 	return (
 		<>
-			<label htmlFor={id}>{children}</label>
+			{children}
 			<input
-				id={id}
-				type={type}
-				name={label}
+				id="todoTitle"
+				name="title"
 				onChange={handleChange}
 				ref={inputRef}
 				value={value}
