@@ -24,34 +24,6 @@ const App = () => {
 
 	useEffect(toLocalStorage, [todoList]);
 
-	const fetchData = async (method, data) => {
-		const options = {
-			method: method,
-			headers: {
-				Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
-				"Content-Type": "application/json",
-			},
-			body: data && JSON.stringify(data),
-		};
-
-		const url = `https://api.airtable.com/v0/${
-			import.meta.env.VITE_AIRTABLE_BASE_ID
-		}/${import.meta.env.VITE_TABLE_NAME}`;
-
-		try {
-			const response = await fetch(url, options);
-
-			if (!response.ok) {
-				throw new Error(`Error: ${response.status}`);
-			}
-
-			const data = await response.json();
-			return data;
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
 	useEffect(() => {
 		setIsLoading(true);
 		fetchData("GET").then((result) => {
