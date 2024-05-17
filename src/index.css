@@ -2,3 +2,19 @@ ol,
 ul {
 	list-style: none;
 }
+
+button {
+	background-color: transparent;
+	border-radius: 5px;
+	transition: ease-in-out 0.1s;
+}
+
+button:hover {
+	background-color: #00308f;
+	color: white;
+}
+
+#root {
+	min-width: 30vw;
+	max-width: 30vw;
+}

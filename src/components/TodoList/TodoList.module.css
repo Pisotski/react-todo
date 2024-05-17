@@ -1,0 +1,13 @@
+.listWrapper {
+	box-sizing: border-box;
+	padding: 20px 10px 0 20px;
+}
+
+.listWrapper > li {
+	height: 30px;
+}
+
+.listWrapper * button {
+	float: right;
+	clear: both;
+}

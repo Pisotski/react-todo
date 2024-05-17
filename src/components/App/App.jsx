@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import { TodoList } from "../TodoList/TodoList.jsx";
 import { AddTodoForm } from "../AddTodoForm/AddTodoForm.jsx";
 
@@ -37,6 +37,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (isLoading === false) {
+			``;
 			localStorage.setItem("savedTodoList", JSON.stringify(todoList));
 		}
 	}, [todoList]);
