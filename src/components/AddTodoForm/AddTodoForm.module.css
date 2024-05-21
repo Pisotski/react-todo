@@ -21,7 +21,10 @@
 	width: 90px;
 	min-width: 50px;
 }
-
+.addButton:hover {
+	background-color: #00308f;
+	color: white;
+}
 @media (max-width: 768px) {
 	.addTodoForm {
 		flex-direction: column;
