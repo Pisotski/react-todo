@@ -11,8 +11,11 @@ const InputWithLabel = ({ id, children, handleTitleChange, value }) => {
 	});
 	return (
 		<>
-			<label htmlFor={id}>{children}</label>
+			<label className={styles.inputLabel} htmlFor={id}>
+				{children}
+			</label>
 			<input
+				className={styles.mainInput}
 				id={id}
 				type="text"
 				name={value}

@@ -1,6 +1,37 @@
 .addTodoForm {
 	display: flex;
 	align-items: baseline;
-	justify-content: space-around;
 	line-height: 3rem;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: nowrap;
+}
+
+.inputWithLabelWrapper {
+	display: flex;
+	flex: 0 0 80%;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 35%;
+}
+
+.addButton {
+	flex: 1;
+	line-height: 2em;
+	width: 90px;
+	min-width: 50px;
+}
+
+@media (max-width: 768px) {
+	.addTodoForm {
+		flex-direction: column;
+	}
+	.inputWithLabelWrapper {
+		width: 100%;
+	}
+}
+@media (max-width: 480px) {
+	.inputWithLabelWrapper {
+		flex-direction: column;
+	}
 }

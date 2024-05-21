@@ -1,13 +1,28 @@
 .listWrapper {
-	box-sizing: border-box;
-	padding: 20px 10px 0 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .listWrapper > li {
-	height: 30px;
+	display: flex;
+	align-content: center;
 }
 
-.listWrapper * button {
-	float: right;
-	clear: both;
+.listWrapper > li > input {
+	flex: 0 0 5%;
+	max-height: 1em;
+}
+.listWrapper > li > label {
+	flex: 0 0 50%;
+	padding-left: 10px;
+}
+.listWrapper > li > button {
+	line-height: 2em;
+	max-height: 2rem;
+}
+@media (max-width: 768px) {
+	.listWrapper > li > button {
+		margin-left: auto;
+	}
 }

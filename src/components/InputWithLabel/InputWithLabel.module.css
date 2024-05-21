@@ -1,1 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+.inputLabel {
+	color: rgb(0, 22, 67);
+	font-size: x-large;
+	font-weight: 1000;
+	min-width: 55px;
+	max-width: 150px;
+}
+
+.mainInput {
+	font-family: "Roboto", sans-serif;
+	width: 60%;
+	min-width: 125px;
+	background-color: transparent;
+	border-radius: 5px;
+	height: 1rem;
+	transition: height 0.3s ease-in-out, border-color 0.3s ease-in-out,
+		background-color 0.3s ease-in-out;
+}
+
+.mainInput:hover {
+	box-shadow: 0 0 4px rgba(0, 22, 67, 0.6);
+}
+.mainInput:focus {
+	box-shadow: 0 0 4px rgba(0, 22, 67, 0.6);
+	background-color: rgba(128, 170, 255, 0.2);
+	border-color: rgba(0, 22, 67, 0.6);
+	height: 1.5rem;
+	outline: none;
+}

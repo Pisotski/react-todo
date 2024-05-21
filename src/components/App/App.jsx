@@ -106,15 +106,19 @@ const App = () => {
 	};
 
 	return (
-		<>
-			<h1>Todo List</h1>
-			<AddTodoForm onAddTodo={addTodo} />
-			{isLoading ? (
-				<p>Loading...</p>
-			) : (
-				<TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-			)}
-		</>
+		<div className={styles.appWrapper}>
+			<div className={styles.navigationBar}>
+				<h1 className={styles.mainHeading}>Todo List</h1>
+				<AddTodoForm onAddTodo={addTodo} />
+			</div>
+			<div className={styles.list}>
+				{isLoading ? (
+					<p>Loading...</p>
+				) : (
+					<TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+				)}
+			</div>
+		</div>
 	);
 };
 

@@ -24,14 +24,17 @@ const AddTodoForm = ({ onAddTodo }) => {
 			className={styles.addTodoForm}
 			onSubmit={handleAddTodo}
 		>
-			<InputWithLabel
-				id={"todoTitle"}
-				value={todoTitle}
-				handleTitleChange={handleTitleChange}
-			>
-				<label htmlFor="todoTitle">Title</label>
-			</InputWithLabel>
-			<button>Add</button>
+			<div className={styles.inputWithLabelWrapper}>
+				<InputWithLabel
+					id={"todoTitle"}
+					value={todoTitle}
+					handleTitleChange={handleTitleChange}
+				>
+					<label htmlFor="todoTitle">Title :</label>
+				</InputWithLabel>
+			</div>
+
+			<button className={styles.addButton}>Add</button>
 		</form>
 	);
 };
