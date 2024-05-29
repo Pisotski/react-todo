@@ -1,0 +1,52 @@
+.appWrapper {
+	display: flex;
+	overflow: hidden;
+	margin: 5% 10%;
+}
+
+.navigationBar {
+	flex: 0 0 50%; /* this will take 30% of the element's size. flex: 1; will take the rest*/
+	min-width: 35%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.list {
+	flex: 1;
+	min-width: 40%;
+	max-width: 70%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+	.appWrapper {
+		margin: 0%;
+		width: 100%;
+		flex-direction: column;
+		position: absolute;
+		left: 50%;
+		top: 15%;
+		transform: translate(-50%, -15%);
+		box-sizing: border-box;
+		max-width: 80%;
+	}
+	.navigationBar,
+	.list {
+		width: 70%;
+		max-width: 80%;
+		align-self: center;
+	}
+	.list {
+		max-height: 65vh;
+		overflow: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.navigationBar,
+	.list {
+		width: 100%;
+		max-width: 100%;
+	}
+}

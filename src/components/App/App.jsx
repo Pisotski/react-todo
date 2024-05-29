@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import { TodoList } from "../TodoList/TodoList.jsx";
 import { AddTodoForm } from "../AddTodoForm/AddTodoForm.jsx";
 
@@ -37,6 +37,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (isLoading === false) {
+			``;
 			localStorage.setItem("savedTodoList", JSON.stringify(todoList));
 		}
 	}, [todoList]);
@@ -105,15 +106,19 @@ const App = () => {
 	};
 
 	return (
-		<>
-			<h1>Todo List</h1>
-			<AddTodoForm onAddTodo={addTodo} />
-			{isLoading ? (
-				<p>Loading...</p>
-			) : (
-				<TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-			)}
-		</>
+		<div className={styles.appWrapper}>
+			<div className={styles.navigationBar}>
+				<h1 className={styles.mainHeading}>Todo List</h1>
+				<AddTodoForm onAddTodo={addTodo} />
+			</div>
+			<div className={styles.list}>
+				{isLoading ? (
+					<p>Loading...</p>
+				) : (
+					<TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+				)}
+			</div>
+		</div>
 	);
 };
 

@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
+import styles from "./InputWithLabel.module.css";
 
-const InputWithLabel = ({ children, handleTitleChange, value }) => {
+const InputWithLabel = ({ id, children, handleTitleChange, value }) => {
 	const inputRef = useRef(null);
 	const handleChange = (e) => {
 		handleTitleChange(e);
@@ -10,11 +11,14 @@ const InputWithLabel = ({ children, handleTitleChange, value }) => {
 	});
 	return (
 		<>
-			<label htmlFor={id}>{children}</label>
+			<label className={styles.inputLabel} htmlFor={id}>
+				{children}
+			</label>
 			<input
+				className={styles.mainInput}
 				id={id}
-				type={type}
-				name={label}
+				type="text"
+				name={value}
 				onChange={handleChange}
 				ref={inputRef}
 				value={value}

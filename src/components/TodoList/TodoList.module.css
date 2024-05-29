@@ -1,0 +1,43 @@
+.listWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.listWrapper > li {
+	display: flex;
+	align-content: center;
+	transition: background-color 0.3s;
+}
+
+.listWrapper > li:hover {
+	background-color: rgba(208, 223, 255, 0.5);
+	border-radius: 5px;
+}
+
+.listWrapper > li > input {
+	flex: 0 0 5%;
+	max-height: 1em;
+}
+.listWrapper > li > label {
+	flex: 0 0 50%;
+	padding-left: 10px;
+}
+
+.listWrapper > li > button {
+	cursor: pointer;
+	line-height: 2em;
+	max-height: 2rem;
+	border: none;
+}
+
+.listWrapper > li > button > svg:hover {
+	filter: invert(13%) sepia(77%) saturate(3927%) hue-rotate(342deg)
+		brightness(135%) contrast(92%);
+}
+
+@media (max-width: 768px) {
+	.listWrapper > li > button {
+		margin-left: auto;
+	}
+}
