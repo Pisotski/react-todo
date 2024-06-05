@@ -1,4 +1,5 @@
 import Remove from "../../assets/remove-minus-circle-svgrepo-com.svg?react";
+import PropTypes from "prop-types";
 
 const TodoListItem = ({ item: { id, title }, onRemoveTodo }) => {
 	return (
@@ -10,6 +11,11 @@ const TodoListItem = ({ item: { id, title }, onRemoveTodo }) => {
 			</button>
 		</li>
 	);
+};
+
+TodoListItem.propTypes = {
+	item: PropTypes.object.isRequired,
+	onRemoveTodo: PropTypes.func.isRequired,
 };
 
 export { TodoListItem };
