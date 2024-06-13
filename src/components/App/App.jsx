@@ -5,7 +5,9 @@ import { AddTodoForm } from "../AddTodoForm/AddTodoForm.jsx";
 
 const url = `https://api.airtable.com/v0/${
 	import.meta.env.VITE_AIRTABLE_BASE_ID
-}/${import.meta.env.VITE_TABLE_NAME}`;
+}/${
+	import.meta.env.VITE_TABLE_NAME
+}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`;
 
 const headers = {
 	Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
@@ -27,9 +29,22 @@ const App = () => {
 	useEffect(() => {
 		setIsLoading(true);
 		fetchData("GET").then((result) => {
+			result.records.sort((objectA, objectB) => {
+				if (objectA.fields.title < objectB.fields.title) {
+					return 1;
+				}
+				if (objectA.fields.title === objectB.fields.title) {
+					return 0;
+				}
+				if (objectA.fields.title > objectB.fields.title) {
+					return -1;
+				}
+			});
+
 			const resultArray = result.records.map((todo) => {
 				return { id: todo.id, title: todo.fields.title };
 			});
+
 			setTodoList(resultArray);
 			setIsLoading(false);
 		});
